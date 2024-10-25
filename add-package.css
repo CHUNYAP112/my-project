@@ -1,0 +1,940 @@
+* {     
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-color: #ECECEC;
+	min-height: 100%;
+}
+
+title {
+	display: none;
+}
+   
+/* top bar stop */
+@media (max-width: 100%){
+    .welcometraveler-bar{
+    height: unset !important;
+    }   
+    *, :after, :before{
+    box-sizing: border-box;
+    }
+}
+    
+.wrapper_top_bar{
+    background-color:#D4F9F8;
+    height: 20px;
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+    
+.container_top_bar {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    background-color:#D4F9F8;
+    padding: 3px 3vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: "Jost Bold";
+    font-weight: 700;
+    font-size: .75rem;
+    letter-spacing: .09375rem;
+    text-transform: uppercase;
+}
+
+.container_top_bar a {
+	text-decoration: underline;
+	color: white;
+	padding: 30px;
+}
+
+.text_top_bar {
+    padding: 10px;
+    color: black;
+}
+/* top bar end */
+
+
+/* header start */
+header {
+	display: flex;
+	width: 100%;
+	background: white;
+	position: relative;
+	justify-content: space-between;
+	padding: 15px 30px;
+	border-bottom: 2px solid gray;
+    z-index: 1000;
+    align-items: center;
+}
+
+header .logo {
+	cursor: pointer;
+}
+
+
+/* menu start */
+.navbar {
+    display: flex;
+    white-space: nowrap;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.navbar li a {
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0px 15px;
+    display: inline-block;
+    text-decoration: none;
+    list-style-type: none;
+    
+    position: relative;
+}
+
+.navbar a:hover {
+    color: purple;
+}
+
+.navbar a.active {
+    color: purple;
+}
+
+.navbar li a::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: purple;
+    transition: width 0.5s ease;
+}
+
+.navbar li a:hover::before {
+    width: 100%;
+}
+
+
+/* profile dropdown start */
+header nav {
+	display: flex;
+	list-style: none;
+	align-items: center; /*这个问题*/
+}
+
+header nav li {
+	margin: 0 2px;
+}
+
+header nav li a {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	padding: 5px 10px;
+    transition: all .50s ease;
+}
+
+header nav li:hover a {
+	background: black;
+	color:white;
+}
+/* header end */
+
+
+/* this is for user profile drop down */
+.profile-dropdown {
+    position: relative;
+    width: fit-content;
+	margin-right: 60px;
+}
+
+.profile-dropdown-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+    text-decoration: none;
+    padding-left: 15px;
+    right: 0px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid purple;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 280px;
+    transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.profile-dropdown-btn:hover {
+    background-color: rgb(127, 183, 126, 0.1);
+    box-shadow: 0px 2px 8px 0px;
+}
+
+.profile-img{
+    position:relative;
+    width: 50px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.profile-img img{
+    position:relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+	top:5px;
+}
+
+.profile-img i {
+    position: absolute;
+    right: 0;
+    bottom: 0.3rem;
+    font-size: 0.5rem;
+    color: blue;
+}
+
+.profile-dropdown-btn .fullname-container {
+    margin: 0 0.5rem;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    list-style: none;
+	justify-content: space-between;
+	position: relative;
+}
+
+.profile-dropdown-btn .fullname-container i {
+	margin-left: 10px;
+	justify-content: space-between;
+	position: relative;
+}
+
+.profile-dropdown-list {
+    position: absolute;
+    list-style-type: none;
+    width: 280px;
+    right: 0;
+    background-color:white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px 0px;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.profile-dropdown-list.active {
+    max-height: 500px;
+}
+
+.profile-dropdown-list hr {
+    border: 0.5px solid purple;
+}
+
+.profile-dropdown-list-item {
+    padding: 0.5rem 0 0.5rem 1rem;
+    transition: padding-left 0.2s;
+}
+
+.profile-dropdown-list-item:hover {
+    padding-left: 1.5rem;
+    background-color: black;
+    box-shadow: 0px 2px 8px 0px;
+    border-radius: 10px;
+}
+
+.profile-dropdown-list-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: black;
+}
+
+.profile-dropdown-list-item a i {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    list-style-type: none;
+    background-color: lightcyan;
+    color: black;
+    line-height: 2.3rem;
+    text-align: center;
+    border-radius: 50%;
+}
+
+header .bar {
+	position: relative;
+	margin: auto;
+	display: none;
+}
+
+header .bar span {
+	position: absolute;
+	color: black;
+	font-size: 35px;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+header .logo {
+	display: flex;
+}
+
+.logo .h1 a {
+	font-size: 15px;
+	text-align: left;
+	text-decoration: none;
+	list-style-type: none;
+	color: black;
+	display: inline-block;
+}
+    
+.logo img {
+	height: 40px;
+	max-width: 100%;
+}
+/* header 1 end */
+
+
+/* this is for edit profile form */
+.heading {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 45px;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
+.heading a {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 45px;
+    text-decoration: none;
+    color: black;
+}
+
+.heading a:hover {
+    text-decoration: underline;
+    color: lightcoral;
+}
+
+.add-package {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECECEC;
+    padding: 10px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.box-container {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.box-container form .package-content {
+    display: flex;
+    flex-wrap: wrap;
+	position: relative;
+    justify-content: space-between;
+    position: relative;
+}
+
+.box-container form {
+	padding: 20px;
+	border-radius: 5px;
+}
+
+form .package-content .input-box {
+    margin-bottom: 20px;
+    width: calc(100% / 2 - 15px);
+}
+
+.input-box label {
+    font-size: 20px;
+}
+
+.input-box-details {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.package-content .input-box-details textarea:focus,
+.package-content .input-box-details textarea:valid {
+    border-color: black;
+    border: solid 2px black;
+}
+
+.package-content .input-box-details textarea {
+    height: 120px;
+    width: 100%;
+    outline: none !important;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    font-size: 16px;
+    display: inline-block;
+    border-bottom-width: 2px;
+    transition: all 0.2s ease;
+    resize: none;
+}
+
+.input-box input[type="file"] {
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+}
+
+.package-content .input-box input, select {
+    height: 45px;
+    width: 100%;
+    outline: none !important;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.2s ease;
+}
+
+.package-content .input-box input:focus,
+.package-content .input-box input:valid {
+    border-color: black;
+    border: solid 2px black;
+}
+
+.preview-box-container {
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.preview-box {
+    width: 70%;
+    margin-left: 15%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+form .update-button {
+    height: 45px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+form .update-button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: grey;
+}
+
+form .update-button input:hover {
+    background-color: black;
+    color: white;
+}
+/* edit profile form end */
+
+/*footer start */
+.copyright {
+	margin-top: 100px;
+    width: 100%;
+    background-color: black;
+    height: 60px;
+    text-align: center;
+    padding: 15px;
+}
+
+.copyright p {
+    color: white;
+}
+/* footer end */
+
+
+.success-message {
+	color: green;
+	font-weight: bold;
+	position: relative;
+	text-align: center;
+	font-size: 20px;
+	width: 100%;
+    top: 20px;
+}
+
+.error-message {
+	color: red;
+	font-weight: bold;
+	position: relative;
+	text-align: center;
+	font-size: 20px;
+	width: 100%;
+    top: 20px;
+}
+
+
+@media(max-width: 1250px) {
+	.success-message {
+		color: green;
+		font-weight: bold;
+		top: 20px;
+		position: relative;
+		text-align: center;
+		font-size: 20px;
+		width: 100%;
+	}
+
+    .error-message {
+		color: red;
+		font-weight: bold;
+		top: 20px;
+		position: relative;
+		text-align: center;
+		font-size: 20px;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 940px) {
+	.success-message {
+		color: green;
+		font-weight: bold;
+		top: 20px;
+		position: relative;
+		text-align: center;
+		font-size: 20px;
+		width: 100%;
+	}
+
+    .error-message {
+		color: red;
+		font-weight: bold;
+		top: 20px;
+		position: relative;
+		text-align: center;
+		font-size: 20px;
+		width: 100%;
+	}
+}
+
+
+/* this is for edit profile start */
+@media screen and (max-width: 700px) {
+    form .package-content .input-box {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .preview-box {
+        width: 90%;
+        margin-left: 5%;
+        height: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* edit profile end */
+
+
+/* this is for header */
+@media screen and (max-width: 1250px) {
+	header{
+		display: block;
+		padding: 0;
+		background-color: white;
+		width: 100%;
+	}
+	header .logo {
+		display:block;
+		padding: 15px 15px;
+		text-align: left;
+		background-color: white;
+	}
+
+    .profile-dropdown {
+        position: relative;
+        width: fit-content;
+        margin-right: 60px;
+    }
+
+	.profile-dropdown-btn {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		list-style-type: none;
+		text-decoration: none;
+		padding-right: 15px;
+		right: 80px;
+		top: 25px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		border: 1px solid purple;
+		border-radius: 50px;
+		cursor: pointer;
+		width: 300px;
+		transition: box-shadow 0.2s, background-color 0.2s;
+	}
+
+	.profile-dropdown-list {
+		position: fixed;
+		list-style-type: none;
+		top: 90px;
+		width: 300px;
+		right: 80px;
+		background-color:white;
+		border-radius: 10px;
+		box-shadow: 0px 2px 8px 0px;
+		z-index: 1;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s;
+		justify-content: center;
+		flex-direction: center;
+		align-items: center;
+	}
+
+	.profile-dropdown-list.active {
+		max-height: 600px;
+	}
+
+	.profile-dropdown-list-item {
+		padding: 0.5rem 0;
+		transition: padding-left 0.2s;
+		display: flex;
+		align-items:center;
+		width: 100%;
+	}
+	
+	.profile-dropdown-list-item:hover {
+		padding-left: 1.5rem;
+		background-color: black;
+		box-shadow: 0px 2px 8px 0px;
+		border-radius: 10px;
+	}
+	
+	.profile-dropdown-list-item a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		list-style-type: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: black;
+		width: 100%;
+	}
+	
+	.profile-dropdown-list-item a i {
+		margin-right: 1rem;
+		font-size: 1.1rem;
+		width: 2.3rem;
+		height: 2.3rem;
+		list-style-type: none;
+		background-color: lightcyan;
+		color: black;
+		line-height: 2.3rem;
+		text-align: center;
+		border-radius: 50%;
+	}
+
+	header .navbar {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		visibility: hidden;
+		width: 350px;
+		align-self: flex-end;
+		background: white;
+		align-items: normal;
+		position: absolute;
+		right:0;
+		z-index: 1;
+		justify-content: space-around;
+	}
+
+	header .navbar li {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		position: relative;
+		width: 100%;
+	}
+
+	header .navbar  li a {
+		color: black;
+		font-size: 22px;
+		padding: 15px;
+		display: block;
+		text-align: center;
+        top: 0px;
+	}
+
+    .navbar li a::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 3px;
+        bottom: 0;
+        left: 25%;
+        background-color: purple;
+        transition: width 0.5s ease;
+        align-items: center;
+    }
+    
+    .navbar li a:hover::before {
+        width: 50%;
+    }
+
+	header .bar {
+		display: block;
+		position: absolute;
+		top: 20px;
+		right: 60px;
+		cursor: pointer;
+	}
+
+	header .bar #close {
+		display: none;
+	}
+
+	#check:checked ~ header .bar #close {
+		display: block;
+	}
+
+	#check:checked ~ header .bar #bars {
+		display: none;
+	}
+
+	#check:checked ~ header .navbar {
+		visibility: visible;
+		height: 450px;
+	}
+
+    
+	/*make a note for complete a full user interface*/
+	header .logo img {
+        display: inline-block;
+        vertical-align: middle; /* Align the image vertically with the text */
+        max-width: 100%;
+        height: 40px;
+    }
+
+    header .logo .h1 {
+        display: inline-block;
+        vertical-align: middle; /* Align the text vertically with the image */
+        font-size: 15px; /* Adjust the font size as needed */
+        margin-right: 5px; /* Adjust the margin as needed */
+    }
+}
+
+/* header start #just make more completed */
+@media screen and (max-width: 640px) {
+    header{
+		display: block;
+		padding: 0;
+		background-color: white;
+		width: 100%;
+        height: 75px;
+    }
+
+	header .logo {
+		display: flex;
+		text-align: left;
+	}
+
+	header .logo img {
+		max-width: 100%;
+		height: 35px;
+		margin-left: 20px;
+        margin-top: 6px;
+        display: flex;
+	}
+
+	header .logo .h1 {
+		font-size: 12px;
+		margin-right: 3px;
+        display: flex;
+	}
+
+    header .navbar {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		visibility: hidden;
+		width: 350px;
+		align-self: flex-end;
+		background: white;
+		align-items: normal;
+		position: absolute;
+        top: 72px;
+		right:0;
+		z-index: 1;
+		justify-content: space-around;
+	}
+
+    .profile-dropdown-btn {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		list-style-type: none;
+		text-decoration: none;
+		padding-right: 15px;
+		right: 120px;
+		top: 25px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		border: 1px solid purple;
+		border-radius: 50px;
+		cursor: pointer;
+		width: 300px;
+		transition: box-shadow 0.2s, background-color 0.2s;
+	}
+
+	.profile-dropdown-list {
+		position: fixed;
+		list-style-type: none;
+		top: 90px;
+		width: 300px;
+		right: 120px;
+		background-color:white;
+		border-radius: 10px;
+		box-shadow: 0px 2px 8px 0px;
+		z-index: 1;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s;
+		justify-content: center;
+		flex-direction: center;
+		align-items: center;
+	}
+
+}
+
+@media screen and (max-width: 390px) {
+
+	header{
+		display: block;
+		padding: 0;
+		background-color: white;
+		width: 100%;
+        height: 75px;
+    }
+
+	header .logo {
+		display: flex;
+		text-align: left;
+	}
+
+	header .logo img {
+		max-width: 100%;
+		height: 35px;
+		margin-left: 0px;
+        margin-top: 6px;
+        display: flex;
+	}
+
+	header .logo .h1 {
+		font-size: 12px;
+		margin-right: 6px;
+        display: flex;
+	}
+
+	.profile-dropdown-btn {
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		list-style-type: none;
+		text-decoration: none;
+		padding-right: 15px;
+		right: 90px;
+		top: 25px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		border: 1px solid purple;
+		border-radius: 50px;
+		cursor: pointer;
+		width: 200px;
+		transition: box-shadow 0.2s, background-color 0.2s;
+	}
+
+	.profile-dropdown-list {
+		position: fixed;
+		list-style-type: none;
+		top: 90px;
+		width: 200px;
+		right: 90px;
+		background-color:white;
+		border-radius: 10px;
+		box-shadow: 0px 2px 8px 0px;
+		z-index: 1;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s;
+		justify-content: center;
+		flex-direction: center;
+		align-items: center;
+	}
+}
+/* header end */ 
+
